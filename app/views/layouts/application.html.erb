@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursocompleto</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <%= favicon_link_tag 'favicon2.png' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<nav>
+  		<ul>
+			<h4>
+				<a href="/contacts" style="padding-right: 10px">Contatos</a>
+				<a href="/addresses" style="padding-right: 10px">Endereços</a>
+				<a href="/kinds" style="padding-right: 10px">Categoria de Contatos</a>
+				<a href="/phones" style="padding-right: 10px">Telefones</a>
+			</h4>
+		</ul>
+	</nav>
+    <%= yield %>
+  </body>
+</html>

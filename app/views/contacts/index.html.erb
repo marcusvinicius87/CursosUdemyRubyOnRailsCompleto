@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<center>
+<h1>Contacts</h1>
+
+<table class="tabela">
+  <thead>
+    <tr class="linhatitulo">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Kind</th>
+      <th>Rmk</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="tabela">
+    <% @contacts.each do |contact| %>
+      <tr style="align-self: center;">
+        <td class="tabela" align="center"><%= contact.name %></td>
+        <td class="tabela" align="center"><%= contact.email %></td>
+        <td class="tabela" align="center"><%= contact.kind.description %></td>
+        <td class="tabela" align="center"><%= contact.rmk %></td>
+        <td class="links"><%= link_to 'Show', contact%></td>
+        <td class="links"><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td class="links"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact', new_contact_path %>
+</center>

@@ -1,0 +1,63 @@
+<%= form_with(model: contact, local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :contact_name, class:'areatexto' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :contact_email, class:'areatexto' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind_id %>
+    <%= collection_select(:contact, :kind_id, @kind_options_select, :id, :description) %>
+  </div>
+  
+  
+    <%= form.fields_for :address do |address_fields| %>
+      <div class="field">
+        Street: <%= address_fields.text_field :street, class:'areatexto' %>
+      </div>
+      <div class="field">
+        City: <%= address_fields.text_field :city, class:'areatexto' %>
+      </div>
+      <div class="field">
+        State: <%= address_fields.select :state, options_for_states(@contact.address.state) %>
+      </div>     
+    <% end %>
+
+   <div id="phones">    
+    <%= form.fields_for :phones do |phones_fields| %>
+      <%= render partial: "phone_fields", locals: { form: phones_fields } %>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :phones, ">" %>
+      <%= link_to_add_association('[Adicionar Telefone]', form, :phones) %>
+    </div>
+   </div>
+
+  
+
+  <div class="field">
+    <%= form.label :rmk %>
+    <%= form.text_area :rmk, id: :contact_rmk , class:'areatexto'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
