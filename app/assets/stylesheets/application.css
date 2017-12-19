@@ -13,9 +13,23 @@
  *= require_tree .
  *= require_self
  */
-.linhatitulo{
-	background-color:rgba(255, 99, 71, 0.6);
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
+
+td, th {
+
+    border: 0px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 .field{
 	padding-top: 10px;
 }

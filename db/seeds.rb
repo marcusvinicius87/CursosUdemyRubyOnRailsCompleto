@@ -10,4 +10,5 @@ Kind.create(description: "Amigo(a)")
 Kind.create(description: "Colega de Faculdade")
 Kind.create(description: "Médico")
 Kind.create(description: "Advogado")
+Kind.create(description: "Família")
 
